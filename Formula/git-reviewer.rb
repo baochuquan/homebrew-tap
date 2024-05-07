@@ -8,7 +8,7 @@ class GitReviewer < Formula
 
   def install
     system "gem", "install", "git-reviewer-0.1.0.gem"
-    bin.install_symlink Dir["#{libexec}/gems/git-reviewer-0.1.0/bin/*"]
+    bin.install_symlink libexec/"git-reviewer"
   end
 
   test do
