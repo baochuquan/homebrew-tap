@@ -16,6 +16,20 @@ class GitReviewer < Formula
 
      # 设置环境变量，以确保 gem 可以在非默认 GEM_HOME 下被找到和执行
      bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"], GEM_PATH: ENV["GEM_HOME"])
+
+     # 创建一个包装脚本，在运行实际的 git-reviewer 之前设置 $LOAD_PATH
+    (bin/"git-reviewer").write <<~EOS
+      #!/bin/bash
+      GEM_HOME="#{libexec}"
+      export GEM_HOME
+      GEM_PATH="#{libexec}"
+      export GEM_PATH
+
+      RUBYLIB="#{libexec}/gems/git-reviewer-#{version}/lib"
+      export RUBYLIB
+
+      exec "#{libexec}/bin/git-reviewer" "$@"
+    EOS
   end
 
   test do
