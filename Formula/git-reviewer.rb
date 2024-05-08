@@ -1,14 +1,17 @@
 class GitReviewer < Formula
   desc "git plugin for code review analyze"
   homepage "https://github.com/baochuquan/git-reviewer"
-  url "https://rubygems.org/downloads/git-reviewer-0.1.0.gem"
-  sha256 "3711d1aa8edcbdcae7c909322dbbcbcdd9f63262c3e7bfd2e01e4efc6d6ecef1"
+  url "https://codeload.github.com/baochuquan/git-reviewer/tar.gz/refs/tags/v0.1.0.tar.gz"
+  sha256 "0edf69499dc38d2a0b8e2fcad2e6ee0efa5955866b02da2646a390c35699b6c5"
 
   depends_on "ruby"
 
   def install
-    system "gem", "install", "git-reviewer", "-v", "0.1.0", "--install-dir", libexec
-    bin.install_symlink libexec/"bin/git-reviewer"
+    ENV["GEM_HOME"] = libexec
+    system "gem", "build", "git-reviewer.gemspec"
+    system "gem", "install", "git-reviewer-#{version}.gem"
+    bin.install libexec/"bin/git-reviewer"
+    bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
   end
 
   test do
