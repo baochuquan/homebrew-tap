@@ -7,8 +7,8 @@ class GitReviewer < Formula
   depends_on "ruby"
 
   def install
-    system "gem", "install", "git-reviewer-#{version}.gem"
-    bin.install_symlink Dir["#{libexec}/gems/git-reviewer-#{version}/bin/*"]
+    system "gem", "install", "git-reviewer-0.4.0.gem"
+    bin.install_symlink Dir["#{libexec}/gems/git-reviewer-0.4.0/bin/*"]
     # ENV["GEM_HOME"] = libexec
     # system "gem", "build", "git-reviewer.gemspec"
     # system "gem", "install", "git-reviewer-#{version}.gem"
