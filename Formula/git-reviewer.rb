@@ -1,7 +1,7 @@
 class GitReviewer < Formula
   desc "git plugin for code review analyze"
   homepage "https://github.com/baochuquan/git-reviewer"
-  url "https://codeload.github.com/baochuquan/git-reviewer/tar.gz/refs/tags/v0.1.0.tar.gz"
+  url "https://github.com/baochuquan/git-reviewer/archive/refs/tags/v0.1.0.tar.gz"
   sha256 "0edf69499dc38d2a0b8e2fcad2e6ee0efa5955866b02da2646a390c35699b6c5"
 
   depends_on "ruby"
