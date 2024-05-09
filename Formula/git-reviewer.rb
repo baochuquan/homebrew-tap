@@ -9,6 +9,11 @@ class GitReviewer < Formula
   def install
 
     ENV["GEM_HOME"] = libexec
+    resource "httparty" do
+      url "https://rubygems.org/gems/git-reviewer-0.5.0.gem"
+      sha256 "1f8260a6b40af7d2450cd0d3d51cf491cf1be35ac34861070fbde57e7a33bd05"
+    end
+
     system "gem", "build", "git-reviewer.gemspec"
     system "gem", "install", "git-reviewer", "-v", "0.5.0", "--install-dir", "#{libexec}"
     (bin/"git-reviewer").write_env_script libexec/"bin/git-reviewer", GEM_HOME: ENV["GEM_HOME"]
