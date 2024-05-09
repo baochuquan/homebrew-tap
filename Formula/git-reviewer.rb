@@ -1,21 +1,17 @@
 class GitReviewer < Formula
   desc "git plugin for code review analyze"
   homepage "https://github.com/baochuquan/git-reviewer"
-  url "https://github.com/baochuquan/git-reviewer/archive/refs/tags/0.5.0.tar.gz"
-  sha256 "f77c0f56c81fa0c9324853d591b8cc2ac6ce122cf5a5f5cf08ada0bceefb8659"
+  url "https://github.com/baochuquan/git-reviewer/archive/refs/tags/0.6.0.tar.gz"
+  sha256 "0e790a56f4529c8b7f2e6574c3d5b5ee444c9fd3669118b031e94bd78c1a03f2"
 
   depends_on "ruby"
 
   def install
 
     ENV["GEM_HOME"] = libexec
-    resource "httparty" do
-      url "https://rubygems.org/gems/git-reviewer-0.5.0.gem"
-      sha256 "1f8260a6b40af7d2450cd0d3d51cf491cf1be35ac34861070fbde57e7a33bd05"
-    end
 
     system "gem", "build", "git-reviewer.gemspec"
-    system "gem", "install", "git-reviewer", "-v", "0.5.0", "--install-dir", "#{libexec}"
+    system "gem", "install", "git-reviewer", "-v", "0.6.0", "--install-dir", "#{libexec}"
     (bin/"git-reviewer").write_env_script libexec/"bin/git-reviewer", GEM_HOME: ENV["GEM_HOME"]
 
     # # 安装gem到libexec目录
