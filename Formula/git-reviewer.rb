@@ -1,16 +1,25 @@
 class GitReviewer < Formula
   desc "git plugin for code review analyze"
   homepage "https://github.com/baochuquan/git-reviewer"
-  url "https://rubygems.org/downloads/git-reviewer-0.4.0.gem"
-  sha256 "4fae7b2aea5352fd7bd759a2073a5f501ac18d8d9845025ed2d1128a4734bc89"
+  url "https://github.com/baochuquan/git-reviewer/archive/refs/tags/0.5.0.tar.gz"
+  sha256 "f77c0f56c81fa0c9324853d591b8cc2ac6ce122cf5a5f5cf08ada0bceefb8659"
 
   depends_on "ruby"
 
   def install
-    # 安装gem到libexec目录
-    system "gem", "install", "git-reviewer", "-v", "0.4.0", "--install-dir", "#{libexec}"
-    # 创建环境脚本指向gem bin目录下的执行文件
-    bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
+
+    ENV["GEM_HOME"] = libexec
+    system "gem", "build", "git-reviewer.gemspec"
+    system "gem", "install", "--ignore-dependencies", "git-reviewer-#{version}.gem"
+    (bin/"git-reviewer").write_env_script libexec/"bin/git-reviewer", GEM_HOME: ENV["GEM_HOME"]
+
+    # # 安装gem到libexec目录
+    # system "gem", "install", "git-reviewer", "-v", "0.4.0", "--install-dir", "#{libexec}"
+    # # 创建环境脚本指向gem bin目录下的执行文件
+    # bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
+
+
+
     # ENV["GEM_HOME"] = libexec
     # system "gem", "build", "git-reviewer.gemspec"
     # system "gem", "install", "git-reviewer-#{version}.gem"
