@@ -9,7 +9,7 @@ class GitReviewer < Formula
   def install
     ENV["GEM_HOME"] = libexec
     system "gem", "build", "git-reviewer.gemspec"
-    system "gem", "install", "--ignore-dependencies", "git-reviewer-#{version}.gem"
+    system "gem", "install", "git-reviewer-#{version}.gem"
     (bin/"git-reviewer").write_env_script libexec/"bin/git-reviewer", GEM_HOME: ENV["GEM_HOME"]
   end
 
