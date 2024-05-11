@@ -1,8 +1,8 @@
 class GitReviewer < Formula
   desc "git plugin for code review analyze"
   homepage "https://github.com/baochuquan/git-reviewer"
-  url "https://github.com/baochuquan/git-reviewer/archive/refs/tags/0.10.0.tar.gz"
-  sha256 "37d142edfd9b861bbd3d77017b032321a812dfdcf8727c346978b915ddcea980"
+  url "https://github.com/baochuquan/git-reviewer/archive/refs/tags/0.11.0.tar.gz"
+  sha256 "0eee350bfc12729ad2df13c085bfa8e8dfe0dfa849061af99c9e2e97da8c273e"
 
   depends_on "ruby"
 
@@ -24,6 +24,11 @@ class GitReviewer < Formula
   resource "claide-plugins" do
     url "https://rubygems.org/downloads/claide-plugins-0.9.2.gem"
     sha256 "c7ea78bc067ab23bce8515497cdcdcb8f01c86dadfbe13c44644e382922c1c2e"
+  end
+
+  resource "nap" do
+    url "https://rubygems.org/downloads/nap-1.1.0.gem"
+    sha256 "949691660f9d041d75be611bb2a8d2fd559c467537deac241f4097d9b5eea576"
   end
 
   def install
