@@ -16,6 +16,11 @@ class GitReviewer < Formula
     sha256 "f951b6af5f3e00203fb290a669e0a85c5dd5b051b3b023392ccfd67ba5abae91"
   end
 
+  resource "unicode-display_width" do
+    url "https://rubygems.org/downloads/unicode-display_width-2.5.0.gem"
+    sha256 "7e7681dcade1add70cb9fda20dd77f300b8587c81ebbd165d14fd93144ff0ab4"
+  end
+
   def install
     ENV["GEM_HOME"] = libexec
     resources.each do |r|
