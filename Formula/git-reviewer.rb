@@ -21,6 +21,11 @@ class GitReviewer < Formula
     sha256 "7e7681dcade1add70cb9fda20dd77f300b8587c81ebbd165d14fd93144ff0ab4"
   end
 
+  resource "claide-plugins" do
+    url "https://rubygems.org/downloads/claide-plugins-0.9.2.gem"
+    sha256 "c7ea78bc067ab23bce8515497cdcdcb8f01c86dadfbe13c44644e382922c1c2e"
+  end
+
   def install
     ENV["GEM_HOME"] = libexec
     resources.each do |r|
