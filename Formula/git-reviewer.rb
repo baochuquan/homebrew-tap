@@ -1,14 +1,14 @@
 class GitReviewer < Formula
   desc "git plugin for code review analyze"
   homepage "https://github.com/baochuquan/git-reviewer"
-  url "https://github.com/baochuquan/git-reviewer/archive/refs/tags/0.9.0.tar.gz"
-  sha256 "223d41af9edf9aee8128a65280a77ddb4bfa26841535234a5a9b4d16048c8656"
+  url "https://github.com/baochuquan/git-reviewer/archive/refs/tags/0.10.0.tar.gz"
+  sha256 "37d142edfd9b861bbd3d77017b032321a812dfdcf8727c346978b915ddcea980"
 
   depends_on "ruby"
 
   resource "claide" do
-    url "https://rubygems.org/downloads/claide-1.0.3.gem"
-    sha256 "1fbc84bad66bbde2058d13875f73a25fd1d252fa1620837563cf11a1abee5a4d"
+    url "https://rubygems.org/downloads/claide-1.1.0.gem"
+    sha256 "6d3c5c089dde904d96aa30e73306d0d4bd444b1accb9b3125ce14a3c0183f82e"
   end
 
   resource "terminal-table" do
